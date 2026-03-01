@@ -223,7 +223,7 @@ body::after {
 .social-btn:hover{
   transform: translateY(-6px) scale(1.04);
   box-shadow:
-    0 0 22px rgba(0, 234, 255, 0.85),
+    0 0 22px #00eaffd9,
     0 0 70px rgba(0, 234, 255, 0.35);
 }
 
@@ -236,6 +236,197 @@ body::after {
   height: 21px;
   object-fit: contain;
   display:block;
+}
+
+.audio-card {
+    overflow: hidden;
+    
+}
+
+
+button {
+        background-color: rgb(0, 6, 12);
+        border: none;
+        border-radius: 12px;
+        height: 50px;
+        width: 150px;
+        font-size: 25px;
+        color: rgb(0, 161, 196);
+        border-color: rgb(0, 161, 196);
+        cursor: pointer;
+        font-family: 'Orbitron', sans-serif;
+        background: rgba(2, 5, 10, 0.65); 
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 212, 255, 0.4);
+        box-shadow:
+        0 0 15px rgba(0,161,196,0.25),
+        inset 0 0 30px rgba(0,161,196,0.08);
+        font-family: 'Rajdhani', sans-serif;
+    }
+    
+
+button:hover {
+        box-shadow:
+        0 0 5px #00eaff,
+        0 0 10px #00eaff,
+        0 0 3px rgb(0, 161, 196);
+        transition: 0.3s ease;
+   }
+
+button:active {
+        background-color: rgba(0, 212, 255, 0.4);
+    }
+
+
+.audio-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  margin-top: 12px;
+
+  border-radius:16px;
+  background: rgba(2, 5, 10, 0.55);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  box-shadow:
+    0 0 15px rgba(0,161,196,0.25),
+    inset 0 0 30px rgba(0,161,196,0.08);
+
+  width: min(700px, 90vw);
+}
+
+
+.audio-card audio{ display:none; }
+
+
+.audio-card .audio-btn{
+  width:42px !important;
+  height:42px !important;
+  padding:0 !important;
+  border-radius:12px !important;
+  font-size:16px !important;
+  line-height:42px !important;
+
+  background: rgba(0, 212, 255, 0.10) !important;
+  border: 1px solid rgba(0, 212, 255, 0.45) !important;
+  color: rgb(0, 212, 255) !important;
+
+  box-shadow: 0 0 12px rgba(0,212,255,.18) !important;
+  cursor:pointer;
+}
+
+.audio-card .audio-btn:active{ transform: scale(.98); }
+
+
+.audio-card .timeline-wrap{
+  position:relative;
+  flex:1;
+  height: 28px;
+  display:flex;
+  align-items:center;
+}
+
+.audio-card .seek{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:28px;
+  opacity:0;
+  cursor:pointer;
+  z-index:3;
+}
+
+.audio-card .timeline{
+  position:relative;
+  width:100%;
+  height:12px;
+  border-radius:999px;
+  background: rgba(0, 212, 255, .10);
+  border: 1px solid rgba(0, 212, 255, .25);
+  overflow:hidden;
+}
+
+.audio-card .fill{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:0%;
+  border-radius:999px;
+  background: rgba(0, 212, 255, .25);
+  box-shadow: 0 0 14px rgba(0,212,255,.30);
+}
+
+
+.audio-card .fill::before{
+  content:"";
+  position:absolute;
+  inset:-30% -40%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(0,212,255,.95), transparent 45%),
+    radial-gradient(circle at 60% 50%, rgba(0,161,196,.75), transparent 55%),
+    radial-gradient(circle at 90% 50%, rgba(0,212,255,.85), transparent 50%);
+  filter: blur(6px);
+  opacity: .75;
+  transform: translateX(-35%) skewX(-12deg);
+  animation: warpFlow 1.2s linear infinite;
+}
+
+.audio-card .timeline::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0,212,255,.0) 0px,
+    rgba(0,212,255,.06) 10px,
+    rgba(0,212,255,.0) 20px
+  );
+  opacity:.35;
+  mix-blend-mode: screen;
+  animation: scanMove 2.2s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes warpFlow{
+  0%   { transform: translateX(-35%) skewX(-12deg); }
+  100% { transform: translateX(35%)  skewX(-12deg); }
+}
+
+@keyframes scanMove{
+  0% { transform: translateX(-20%); }
+  100% { transform: translateX(20%); }
+}
+
+.audio-card .time{
+  min-width: 100px;
+  font-size: 12px;
+  color: rgba(0, 212, 255, .85);
+  letter-spacing: .4px;
+  user-select:none;
+}
+
+a:link {
+  color: rgb(0, 129, 158);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(0, 129, 158);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(0, 212, 255);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(0, 212, 255);
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 
